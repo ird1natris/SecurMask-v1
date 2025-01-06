@@ -151,26 +151,28 @@ const Login = ({ onLoginSuccess }) => {
       }}
     >
       <form onSubmit={handleLogin}>
-        <div className={`flex-1 flex flex-col xl:px-0 sm:px-16 px-6`}>
+        <div className={`flex-1 flex flex-col xl:px-20 sm:px-20 px-10`}>
           <div className="flex flex-col items-start justify-center p-5 rounded shadow-md w-[386px] h-auto">
-            <img src={logo} className="w-[175px] h-[46px] pt-5" alt="Logo" />
+            <img src={logo} className="w-[175px] h-[46px] pt-5 mb-4" alt="Logo" />
             <h2 className="text-2xl font-poppins text-white font-semibold mb-6">Welcome</h2>
             <p className="text-[#9695b9] text-lg font-normal font-['Roboto'] leading-[1px] mb-5">
               We are glad to see you back!
             </p>
 
-            <label htmlFor="email" className="text-white text-xs font-normal mb-2">Email</label>
+            <label htmlFor="email" className="text-white text-xs font-normal mb-3">Email</label>
             <input
               id="email"
               type="email"
               placeholder="Email"
               value={values.email}
               onChange={e => setValues({ ...values, email: e.target.value })}
-              className={`shadow-md w-full h-[50px] rounded border ${errors.email ? 'border-red-500' : 'border-[#eaeaf1]'} mb-4`}
+              className={`w-full px-3 py-4 border rounded-md ${
+                errors.email ? "border-red-500" : "border-gray-300"
+              }`}
             />
             {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
 
-            <label htmlFor="password" className="text-white text-xs font-normal mb-2">Password</label>
+            <label htmlFor="password" className="text-white text-xs font-normal mb-2 mt-3">Password</label>
             <div className="relative w-full">
               <input
                 id="password"
@@ -178,11 +180,13 @@ const Login = ({ onLoginSuccess }) => {
                 placeholder="••••••••"
                 value={values.password}
                 onChange={e => setValues({ ...values, password: e.target.value })}
-                className={`shadow-md w-full h-[50px] rounded border ${errors.password ? 'border-red-500' : 'border-[#eaeaf1]'} mb-4`}
+                className={`w-full px-3 py-4 border rounded-md ${
+                  errors.password ? "border-red-500" : "border-gray-300"
+                }`}
               />
             </div>
             {errors.password && <p className="text-red-500 text-xs">{errors.password}</p>}
-            <div className="flex items-center mb-4">
+            <div className="flex items-center mb-4 mt-2">
               <input
                 type="checkbox"
                 id="showPassword"
@@ -192,8 +196,12 @@ const Login = ({ onLoginSuccess }) => {
               <label htmlFor="showPassword" className="text-white text-sm font-normal font-['Roboto'] cursor-pointer">Show Password</label>
             </div>
 
-            <button type="submit" className="w-full h-[60px] bg-[#875eff] text-white rounded-[10px] border-2 mb-4">
-              Sign In
+            <button
+              type="submit"
+              className="w-full h-[60px] bg-[#875eff] text-white rounded-[10px] border-2 mb-4 group relative overflow-hidden"
+              >
+              <span className="absolute inset-0 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 opacity-0 group-hover:opacity-100 transition duration-300"></span>
+              <span className="relative z-10">Sign In</span>
             </button>
             <div className="text-white font-normal font-['Inter'] text-sm hover:underline block mb-4">
               <Link to="/forgot-password">Forgot Password?</Link>
@@ -202,16 +210,25 @@ const Login = ({ onLoginSuccess }) => {
             <p className="text-[#9695b9] text-lg font-normal mb-4">Don’t have an account?</p>
             <button
               onClick={() => navigate('/register')}
-              className="w-full h-[60px] bg-[#875eff] text-white rounded-[10px] border-2 font-bold mb-4"
-            >
-              Register
+              className="w-full h-[60px] bg-[#875eff] text-white rounded-[10px] border-2 font-bold mb-4 group relative overflow-hidden"
+              >
+              <span className="absolute inset-0 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 opacity-0 group-hover:opacity-100 transition duration-300"></span>
+              <span className="relative z-10">Register</span>
             </button>
-            <a href="mailto:support@example.com?subject=Help%20Request&body=Hello,%20I%20need%20help%20with..." className="text-[#9695b9] hover:underline">Do you need help? Contact us.</a>
+            <div className="flex items-center text-[#9695b9] mt-4">
+            <img
+              src={infocircle}
+              alt="Info Icon"
+              className="mr-2 w-[20px] h-[20px]"
+            />
+            <a
+              href="mailto:unipurpose001@gmail.com?subject=Help%20Request&body=Hello,%20I%20need%20help%20with..."
+              className="hover:underline"
+            >
+            Do you need help? Contact us.
+            </a>
+          </div>
 
-            <div className="flex items-center mt-4 text-[#9695b9]">
-              <img src={infocircle} className="mr-2 w-[20px] h-[20px]" alt="Info Icon" />
-              
-            </div>
           </div>
         </div>
       </form>
