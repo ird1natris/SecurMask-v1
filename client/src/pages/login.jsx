@@ -156,7 +156,7 @@ const Login = ({ onLoginSuccess }) => {
             <img src={logo} className="w-[175px] h-[46px] pt-5 mb-4" alt="Logo" />
             <h2 className="text-2xl font-poppins text-white font-semibold mb-6">Welcome</h2>
             <p className="text-[#9695b9] text-lg font-normal font-['Roboto'] leading-[1px] mb-5">
-              We are glad to see you back!
+              We are glad to see you back !
             </p>
 
             <label htmlFor="email" className="text-white text-xs font-normal mb-3">Email</label>
@@ -193,7 +193,7 @@ const Login = ({ onLoginSuccess }) => {
                 checked={showPassword}
                 onChange={() => setShowPassword(!showPassword)}
               />
-              <label htmlFor="showPassword" className="text-white text-sm font-normal font-['Roboto'] cursor-pointer">Show Password</label>
+              <label htmlFor="showPassword" className="text-white text-sm px-1 font-normal font-['Roboto'] cursor-pointer">Show Password</label>
             </div>
 
             <button
@@ -204,10 +204,10 @@ const Login = ({ onLoginSuccess }) => {
               <span className="relative z-10">Sign In</span>
             </button>
             <div className="text-white font-normal font-['Inter'] text-sm hover:underline block mb-4">
-              <Link to="/forgot-password">Forgot Password?</Link>
+              <Link to="/forgot-password">Forgot Password ?</Link>
             </div>
 
-            <p className="text-[#9695b9] text-lg font-normal mb-4">Don’t have an account?</p>
+            <p className="text-[#9695b9] text-lg font-normal mb-4">Don’t have an account ?</p>
             <button
               onClick={() => navigate('/register')}
               className="w-full h-[60px] bg-[#875eff] text-white rounded-[10px] border-2 font-bold mb-4 group relative overflow-hidden"
@@ -225,7 +225,7 @@ const Login = ({ onLoginSuccess }) => {
               href="mailto:unipurpose001@gmail.com?subject=Help%20Request&body=Hello,%20I%20need%20help%20with..."
               className="hover:underline"
             >
-            Do you need help? Contact us.
+            Do you need help ? Contact us.
             </a>
           </div>
 
