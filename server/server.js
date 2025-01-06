@@ -246,10 +246,13 @@ app.post('/login', (req, res) => {
 
                     // Send the OTP via email
                     const mailOptions = {
-                        from: process.env.EMAIL_USER, // Sender email
+                        from: `"SecurMask Team" <${process.env.EMAIL_USER}>`, // Display name with email
                         to: email,                   // Recipient email
-                        subject: 'Your OTP Code',
-                        text: `Your OTP code is ${otp}. It is valid for 3 minutes.`,
+                        subject: 'SecurMask Verification Code',
+                        html: `
+                            <p>Your verification code for <strong>SecurMask</strong> is <strong style="font-size: 18px; color: #000;">${otp}</strong>.</p>
+                            <p>This code is valid for 3 minutes. Please do not share this code with anyone.</p>
+                        `,
                     };
 
                     transporter.sendMail(mailOptions, (error, info) => {
