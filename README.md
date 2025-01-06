@@ -45,8 +45,8 @@ Ensure the following tools are installed:
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/ird1natris/SecurMask.git
-   cd SecurMask
+   git clone https://github.com/ird1natris/SecurMask-v1.git
+   cd SecurMask-v1
    ```
 2. **Set Up the Backend**
    
