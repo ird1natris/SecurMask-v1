@@ -66,3 +66,4 @@ const AboutUs = ({onLogout}) => {
 };
 
 export default AboutUs;
+

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom'; // Import useLocation
 import { people01, logo, dots, close } from '../assets';
 
 const navLinks = [
@@ -23,6 +23,7 @@ const navLinks = [
 const Navbar = () => {
   const [toggle, settoggle] = useState(false);
   const [profileImage, setProfileImage] = useState(people01); // Default profile image
+  const location = useLocation(); // Get current location
 
   // Load profile image from localStorage on component mount
   useEffect(() => {
@@ -41,7 +42,8 @@ const Navbar = () => {
       <ul className='list-none sm:flex hidden justify-end items-center flex-1'>
         {navLinks.map((nav, index) => (
           <li key={nav.id}
-            className={`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'} text-white`}
+            className={`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'} text-white 
+              ${location.pathname === nav.path ? 'bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 text-transparent bg-clip-text' : 'hover:bg-gradient-to-r hover:from-purple-500 hover:via-purple-600 hover:to-purple-700 hover:text-transparent hover:bg-clip-text'}`}
           >
             <Link to={nav.path}>
               {nav.title && <span>{nav.title}</span>}
@@ -69,7 +71,8 @@ const Navbar = () => {
           <ul className='list-none flex flex-col justify-end items-center flex-1'>
             {navLinks.map((nav, index) => (
               <li key={nav.id}
-                className={`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mb-4'} text-white`}
+                className={`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mb-4'} text-white 
+                  ${location.pathname === nav.path ? 'bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 text-transparent bg-clip-text' : 'hover:bg-gradient-to-r hover:from-purple-500 hover:via-purple-600 hover:to-purple-700 hover:text-transparent hover:bg-clip-text'}`}
               >
                 <Link to={nav.path}>
                   {nav.title && <span>{nav.title}</span>}
@@ -78,7 +81,7 @@ const Navbar = () => {
                   <img
                     src={profileImage} // Use the profile image from state (localStorage value)
                     alt="profile"
-                     className='w-14 h-14 rounded-full'
+                    className='w-14 h-14 rounded-full'
                   />
                 )}
               </li>
@@ -91,3 +94,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
