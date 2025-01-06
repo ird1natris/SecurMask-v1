@@ -81,8 +81,8 @@ Ensure the following tools are installed:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/ird1natris/SecurMask.git  
-cd SecurMask  
+git clone https://github.com/ird1natris/SecurMask-v1.git  
+cd SecurMask-v1 
 ```
 
 2. Work on the project, making changes locally.
