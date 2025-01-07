@@ -35,23 +35,40 @@ app.use(
 );
 app.use(cookieParser());
 
-// Determine the database configuration based on an environment variable
-const isPartnerEnvironment = process.env.USE_PARTNER_DB === 'true';
+// Determine which environment to use
+const environment = process.env.ENVIRONMENT;
 
-// MySQL Connection Setup
-const db = mysql.createConnection({
-    host: isPartnerEnvironment ? process.env.PARTNER_DB_HOST : process.env.DB_HOST,
-    user: isPartnerEnvironment ? process.env.PARTNER_DB_USER : process.env.DB_USER,
-    password: isPartnerEnvironment ? process.env.PARTNER_DB_PASS : process.env.DB_PASS,
-    database: isPartnerEnvironment ? process.env.PARTNER_DB_NAME : process.env.DB_NAME,
-});
+// Configure database connection based on the environment
+let dbConfig;
 
-// Connect to the Database
+if (environment === 'irdina') {
+    dbConfig = {
+        host: process.env.IRDINA_DB_HOST,
+        user: process.env.IRDINA_DB_USER,
+        password: process.env.IRDINA_DB_PASS,
+        database: process.env.IRDINA_DB_NAME,
+    };
+} else if (environment === 'aiven') {
+    dbConfig = {
+        host: process.env.AIVEN_DB_HOST,
+        port: process.env.AIVEN_DB_PORT,
+        user: process.env.AIVEN_DB_USER,
+        password: process.env.AIVEN_DB_PASS,
+        database: process.env.AIVEN_DB_NAME,
+    };
+} else {
+    throw new Error("Invalid environment specified in .env file");
+}
+
+// Create the MySQL connection
+const db = mysql.createConnection(dbConfig);
+
+// Connect to the database
 db.connect((err) => {
     if (err) {
         console.error('Error connecting to the database:', err.message);
     } else {
-        console.log('Connected to the MySQL database.');
+        console.log(`Connected to the ${environment} database.`);
     }
 });
 
