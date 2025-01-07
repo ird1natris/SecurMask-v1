@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/4514f3fe-abac-4844-a1a9-9c66adf2f442/resourceGroups/NodeAzure/providers/Microsoft.Web/sites/SecurMask",
+    "appService.deploySubpath": "."
+}
