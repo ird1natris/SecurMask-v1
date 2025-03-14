@@ -91,10 +91,10 @@ cd SecurMask-v1
 ```bash
 git add .  
 git commit -m "[TYPE] Your commit message"  
-git push origin master  
+git push origin main  
 ```
 
 4. Ensure to pull any updates before working further:
 ```bash
-git pull origin master  
+git pull origin main  
 ```
